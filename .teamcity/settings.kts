@@ -15,7 +15,7 @@ object Build1 : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
-  root(customRepo)
+        root(customRepo)
     }
 
     steps {
@@ -24,6 +24,15 @@ object Build1 : BuildType({
             scriptContent = "ls"
         }
     }
+features {
+    matrix {
+        //enabled = false
+        param("par1", listOf(
+            value("1"),
+            value("2")
+        ))
+    }
+}
 })
 
 
